@@ -1,0 +1,70 @@
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #e9e9e9;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #000000;
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.sidenav a:hover {
+  background: #f1ad33;
+  cursor: pointer;
+  color: white;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+.logo {
+  text-align: center;
+}
+
+.logouttext {
+  margin-left: 90%;
+  cursor: pointer;
+}
+
+.countDiv {
+  border: solid 1px rgba(0, 0, 0, 0.143);
+  border-radius: 5%;
+  padding: 0.5em;
+  margin-top: 0px;
+  height: 20%;
+}
+
+.MaincountDiv {
+  display: flex;
+  column-gap: 2em;
+  margin-top: 4%;
+  cursor: pointer;
+}
+
+.textCount {
+  margin: 0px;
+}
