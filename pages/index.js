@@ -15,7 +15,7 @@ export default function Home() {
       </Head>
       <div>
         <Sidenav className="sm:d-none" />
-        <div className="bg-black h-screen text-white">
+        <div className="home">
           <div className="ml-[200px] ">Welcome to Home Page</div>
         </div>
       </div>

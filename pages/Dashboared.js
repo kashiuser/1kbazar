@@ -5,7 +5,7 @@ function Dashboared() {
   return (
     <div className=" ">
       <Sidenav />
-      <div className="ml-[200px] h-screen  bg-red-50">
+      <div className="ml-[200px] h-screen ">
         <h1 className="bg-red-50  pl-2 pb-2    text-3xl  text-black pt-2">
           Welcome to the Dashboared 💫
         </h1>
