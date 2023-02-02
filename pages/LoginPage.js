@@ -3,7 +3,9 @@ import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
 import withAuth from "../components/withAuth";
+import { useRouter } from "next/router";
 function LoginPage() {
+  const Router = useRouter();
   async function login(username, password) {
     try {
       const response = await fetch("/api/auth/login", {
@@ -13,6 +15,7 @@ function LoginPage() {
       });
       if (response.status === 200) {
         const data = await response.json();
+        // router.push("/Dashboard");
         return data.token;
       } else {
         return null;
@@ -26,17 +29,27 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setError(null);
-    const token = await login(username, password);
-    if (token) {
-      // Save the JWT token in local storage
-      localStorage.setItem("token", token);
-      // Redirect to the protected page
-      Router.push("/protected");
-    } else {
-      setError("Invalid username or password");
+  const router = useRouter();
+  const payload = {
+    username: username,
+    password: password,
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://moshimoshi.cloud:3000/admin/login",
+        payload
+      );
+
+      if (!response.data.error) {
+        router.push("/dashboard");
+      } else {
+        console.error(response.data.error);
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
   return (
@@ -118,6 +131,7 @@ function LoginPage() {
                 </div>
                 {/* <Link href="/"> */}
                 <button
+                  onClick={handleSubmit}
                   type="submit"
                   class="w-full text-white bg-black mt-2 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
                 >
@@ -143,4 +157,4 @@ function LoginPage() {
   );
 }
 
-export default withAuth(LoginPage);
+export default LoginPage;

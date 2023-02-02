@@ -3,13 +3,14 @@ import Sidenav from "../components/sidebar/Sidenav";
 import { AgGridReact, AgGridColumn } from "ag-grid-react";
 import Grid from "@mui/material/Grid";
 import FormPopup from "../components/Popup";
+import axios from "axios";
 
 function Blogs() {
   const [tabelData, setTableData] = React.useState(null);
-  const url = "http://localhost:3000/api/login";
+  // const url = "http://moshimoshi.cloud:3000/blog/blogList";
   useEffect(() => {
     getCareerList();
-  }, [1]);
+  }, []);
   const [formData, setFormData] = React.useState({
     ID: "",
     Job_Title: "",
@@ -21,16 +22,20 @@ function Blogs() {
     setFormData({ ...formData, [id]: value });
   };
   const getCareerList = async () => {
-    await fetch(url)
-      .then((resp) => resp.json())
-      .then((resp) => setTableData(resp));
+    try {
+      const res = await axios.get("http://moshimoshi.cloud:3000/blog/blogList");
+      console.log(res)
+      // setTableData(res.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
-  const handelFormSubmit = async () => {
-    await fetch(url, { method: "POST", body: JSON.stringify(formData) })
-      .then((resp) => resp.json())
-      // .then((resp) => getCareerList())
-      .catch((err) => console.log(err));
-  };
+  // const handelFormSubmit = async () => {
+  //   await fetch(url, { method: "POST", body: JSON.stringify(formData) })
+  //     .then((resp) => resp.json())
+  //     // .then((resp) => getCareerList())
+  //     .catch((err) => console.log(err));
+  // };
   // console.log(formData);
 
   const [open, setOpen] = React.useState(false);
@@ -105,7 +110,7 @@ function Blogs() {
               handleClose={handleClose}
               data={formData}
               onChange={onChange}
-              handelFormSubmit={handelFormSubmit}
+              // handelFormSubmit={handelFormSubmit}
             />
           </div>
         </div>
