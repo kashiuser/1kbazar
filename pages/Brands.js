@@ -73,7 +73,7 @@ function Brands() {
   return (
     <div className="">
       <Sidenav />
-      <div className="bg-red-50  text-black  pr-[50px] ml-[200px]">
+      <div className="bg-red-50  text-black  pr-6">
         <div className="pl-2 py-2 bg-red-50      text-3xl  text-black pt-2 ">
           Welcome to Brands page 🪙
         </div>

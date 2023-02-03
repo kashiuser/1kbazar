@@ -114,7 +114,7 @@ function JobOpenings() {
   return (
     <div>
       <Sidenav />
-      <div className="bg-red-50 h-screen text-black pl-[200px] pr-[50px]">
+      <div className="bg-red-50 h-screen text-black  pr-3">
         <div className="pl-2 py-2 bg-red-50      text-3xl  text-black pt-2  ">
           Welcome to Job Openings Page ✉️
         </div>
