@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 function Sidenav() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div>
-      <div className="sidenav px-2 ">
-        <Link href="/">
-          <img src="/Logo.png" alt="" />
-        </Link>
+      <div className="bg-red-50">
+        <div className="pt-2 pl-2 mb-2 bg-red-50 flex justify-center">
+          <Link href="/" className="">
+            <img src="/Logo.png" className="h-[100px] w-[200px] " alt="" />
+          </Link>
+        </div>
+
+        <button className="toggle-button " onClick={() => setIsOpen(!isOpen)}>
+          <div className="hover:bg-[#F1AC33]  hover:text-black p-2 m-2 rounded bg-red-500 text-white hover:shadow-white">
+            OPEN MENU
+          </div>
+        </button>
+      </div>
+
+      <div className={`sidenav ${isOpen ? "open" : ""}`}>
+        <button className="toggle-button" onClick={() => setIsOpen(!isOpen)}>
+          <div className="hover:bg-[#F1AC33] hover:text-black p-2 px-4 m-2 rounded bg-red-500 text-white hover:shadow-white">
+            x
+          </div>
+        </button>
 
         <div className="nav-list">
           <Link href="/Dashboared">
