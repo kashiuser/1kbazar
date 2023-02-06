@@ -23,9 +23,11 @@ function Blogs() {
   };
   const getCareerList = async () => {
     try {
-      const res = await axios.get("http://moshimoshi.cloud:3000/blog/blogList");
-      console.log(res);
-      // setTableData(res.data);
+      const res = await axios.get(
+        "https://1kbazzar-api.moshimoshi.cloud/blog/blogList"
+      );
+      console.log(res.data.data);
+      setTableData(res.data.data);
     } catch (err) {
       console.log(err);
     }
@@ -43,24 +45,17 @@ function Blogs() {
   const handleClose = () => setOpen(false);
 
   const columnDefs = [
-    { headerName: "ID", field: "ID" },
+    { headerName: "ID", field: "_id" },
     {
-      headerName: "Job Title",
-      field: "Job_Title",
+      headerName: "title",
+      field: "title",
       editable: true,
       sortable: true,
       filter: true,
     },
     {
-      headerName: "Department",
-      field: "Department",
-      editable: true,
-      sortable: true,
-      filter: true,
-    },
-    {
-      headerName: "Location",
-      field: "Location",
+      headerName: "body",
+      field: "body",
       editable: true,
       sortable: true,
       filter: true,
