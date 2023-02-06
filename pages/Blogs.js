@@ -68,7 +68,7 @@ function Blogs() {
     floatingFilter: true,
     flex: 1,
     resizable: true,
-    minWidth: 120,
+    minWidth: 450,
   };
   return (
     <div className="">
@@ -88,7 +88,7 @@ function Blogs() {
           </Grid>
           <div
             id="myGrid"
-            class="ag-theme-alpine pl-2 h-[250px] w-[100%] text-black"
+            class="ag-theme-alpine pl-2 h-[350px] w-[100%] text-black"
           >
             <AgGridReact
               defaultColDef={defaultColDef}
