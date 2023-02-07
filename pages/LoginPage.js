@@ -2,26 +2,33 @@ import React from "react";
 import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
-import withAuth from "../components/withAuth";
+import { toast } from "react-toastify";
+
 import { useRouter } from "next/router";
 function LoginPage() {
   const Router = useRouter();
   async function login(username, password) {
     try {
-      const response = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      });
+      const response = await fetch(
+        "https://1kbazzar-api.moshimoshi.cloud/admin/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
+        }
+      );
       if (response.status === 200) {
+        toast.success("Login successful!");
         const data = await response.json();
-        // router.push("/Dashboard");
+        router.push("/Dashboared");
         return data.token;
       } else {
-        return null;
+        console.error(response.data.error);
+        toast.error(response.data.error);
       }
     } catch (error) {
-      return null;
+      console.error(error);
+      toast.error("An error occurred while logging in. Please try again.");
     }
   }
 
@@ -44,7 +51,7 @@ function LoginPage() {
       );
 
       if (!response.data.error) {
-        router.push("/dashboard");
+        router.push("/Dashboared");
       } else {
         console.error(response.data.error);
       }

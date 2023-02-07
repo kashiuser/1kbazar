@@ -71,9 +71,9 @@ function NewsRoom() {
     minWidth: 120,
   };
   return (
-    <div className="">
+    <div className="bg-red-50">
       <Sidenav />
-      <div className="bg-red-50  text-black  pr-6">
+      <div className="bg-red-50 lg:pl-[250px] xl:pl-[350px] 2xl:pl-[350px] text-black  pr-6">
         <div className="pl-2 py-2 bg-red-50      text-3xl  text-black pt-2 ">
           Welcome to 1k News Room 📰🗞️
         </div>

@@ -71,9 +71,9 @@ function Teams() {
     minWidth: 120,
   };
   return (
-    <div className="">
+    <div className="bg-red-50">
       <Sidenav />
-      <div className="bg-red-50  text-black  pr-6 ">
+      <div className="bg-red-50  text-black  lg:pl-[250px] xl:pl-[350px] 2xl:pl-[350px]  pr-6 ">
         <div className="pl-2 py-2 bg-red-50      text-3xl  text-black pt-2 ">
           Welcome to Teams Page 🧑🏻‍🤝‍🧑🏼
         </div>
