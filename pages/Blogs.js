@@ -71,9 +71,9 @@ function Blogs() {
     minWidth: 450,
   };
   return (
-    <div className="">
+    <div className="bg-red-50">
       <Sidenav />
-      <div className="lg:pl-[250px] xl:pl-[300px] 2xl:pl-[340px] 3xl:pl-[340px] ">
+      <div className="bg-red-50  lg:pl-[250px] xl:pl-[350px] 2xl:pl-[350px]  text-black pr-6">
         <div className="pl-2 py-2 bg-red-50      text-3xl  text-black pt-2 ">
           Welcome to Blogs Page 📝
         </div>
