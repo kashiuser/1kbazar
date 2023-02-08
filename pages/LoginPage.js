@@ -20,6 +20,9 @@ function LoginPage() {
       if (response.status === 200) {
         toast.success("Login successful!");
         const data = await response.json();
+        console.log(data);
+        // Store the token in local storage
+        localStorage.setItem("token", data.token);
         router.push("/Dashboared");
         return data.token;
       } else {
@@ -51,6 +54,7 @@ function LoginPage() {
       );
 
       if (!response.data.error) {
+        console.log(response.headers);
         router.push("/Dashboared");
       } else {
         console.error(response.data.error);
