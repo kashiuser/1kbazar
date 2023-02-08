@@ -2,8 +2,24 @@ import React, { useEffect } from "react";
 import Sidenav from "../components/sidebar/Sidenav";
 import { AgGridReact, AgGridColumn } from "ag-grid-react";
 import Grid from "@mui/material/Grid";
-import FormPopup from "../components/Popup";
+// import FormPopup from "../components/Popup";
 import axios from "axios";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Modal from "@mui/material/Modal";
+import { TextField } from "@mui/material";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 
 function Blogs() {
   const [tabelData, setTableData] = React.useState(null);
@@ -11,12 +27,7 @@ function Blogs() {
   useEffect(() => {
     getCareerList();
   }, []);
-  const [formData, setFormData] = React.useState({
-    ID: "",
-    Job_Title: "",
-    Department: "",
-    Location: "",
-  });
+  const [formData, setFormData] = React.useState([""]);
   const onChange = (e) => {
     const { value, id } = e.target;
     setFormData({ ...formData, [id]: value });
@@ -100,13 +111,60 @@ function Blogs() {
                 // handle update to cell value here
               }}
             />
-            <FormPopup
-              open={open}
-              handleClose={handleClose}
-              data={formData}
-              onChange={onChange}
-              // handelFormSubmit={handelFormSubmit}
-            />
+
+            <div>
+              {/* <Button onClick={handleOpen}>Open modal</Button> */}
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style}>
+                  <form action="">
+                    {console.log(formData)}
+                    <h1 className="py-5">Enter the New Blog Details</h1>
+
+                    <TextField
+                      onChange={(e) => onChange(e)}
+                      id="Blog Title"
+                      placeholder="Enter the Blog Title "
+                      label="Blog Title Heading"
+                      style={{ marginBottom: "24px" }}
+                      fullWidth
+                    />
+                    <TextField
+                      id="Experience"
+                      placeholder="Enter the Blog Body"
+                      label="Body"
+                      fullWidth
+                      style={{ marginBottom: "24px" }}
+                      onChange={(e) => onChange(e)}
+                    />
+                  </form>
+                  <div className="flex flex-row ">
+                    <Button
+                      onClick={handleClose}
+                      color="secondary"
+                      variant="outlined"
+                      style={{ marginRight: "3px" }}
+                      onChange={(e) => onChange(e)}
+                    >
+                      Close
+                    </Button>
+                    <Button
+                      variant="outlined"
+                      onClick={() => {
+                        handelFormSubmit();
+                        handleClose;
+                      }}
+                    >
+                      Submit
+                    </Button>
+                  </div>
+                </Box>
+              </Modal>
+            </div>
           </div>
         </div>
       </div>
