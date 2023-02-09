@@ -31,6 +31,18 @@ function Sidenav() {
           <Link href="/Dashboared">
             <li className="">Dashboared</li>
           </Link>
+          <Link href="#">
+            <li className="">Home Banner</li>
+          </Link>
+          <Link href="#">
+            <li className="">Home Testimonial</li>
+          </Link>
+          <Link href="#">
+            <li className="">Retailer Banner</li>
+          </Link>
+          <Link href="#">
+            <li className="">Retailer Testimonial</li>
+          </Link>
 
           <Link href="/JobOpenings">
             <li>Job Openings !</li>
