@@ -28,16 +28,16 @@ function Sidenav() {
         </button>
 
         <div className="nav-list">
-          <Link href="/Dashboared">
-            <li className="">Dashboared</li>
+          <Link href="/Dashboard">
+            <li className="">Dashboard</li>
           </Link>
-          <Link href="#">
+          <Link href="/HomeBanner">
             <li className="">Home Banner</li>
           </Link>
           <Link href="#">
             <li className="">Home Testimonial</li>
           </Link>
-          <Link href="#">
+          <Link href="/RetailerBanner">
             <li className="">Retailer Banner</li>
           </Link>
           <Link href="#">

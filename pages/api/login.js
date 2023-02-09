@@ -5,6 +5,17 @@ const array = [
     Job_Title: "Senior UX Designer",
     Department: "Sr UX Designer ",
     Location: "Delhi",
+    Name: "Kumar Sangeetesh",
+    Profile: "",
+    Designation: "Senior Developer",
+    Email: "support@1knetworks.com",
+    PhoneNumber: "9874561230",
+    Message: "",
+    HomeBanner: "",
+    RetailerBanner: "",
+    BrandLogo: "",
+    Questions: "",
+
   },
 ];
 export default function handler(req, res) {

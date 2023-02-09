@@ -7,7 +7,7 @@ function Dashboared() {
       <Sidenav />
       <div className="  lg:pl-[250px] xl:pl-[300px] 2xl:pl-[340px] 3xl:pl-[350px] ">
         <h1 className="bg-red-50  pl-2 pb-2    text-3xl  text-black pt-2">
-          Welcome to the Dashboared 💫
+          Welcome to the Dashboard 💫
         </h1>
 
         <div className="grid lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 gap-2   bg-red-50 pt-2 pr-5">

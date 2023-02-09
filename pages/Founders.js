@@ -12,9 +12,8 @@ function Founders() {
   }, [1]);
   const [formData, setFormData] = React.useState({
     ID: "",
-    Job_Title: "",
-    Department: "",
-    Location: "",
+    Name: "",
+    Profile: "",
   });
   const onChange = (e) => {
     const { value, id } = e.target;
@@ -40,22 +39,15 @@ function Founders() {
   const columnDefs = [
     { headerName: "ID", field: "ID" },
     {
-      headerName: "Job Title",
-      field: "Job_Title",
+      headerName: "Name",
+      field: "Name",
       editable: true,
       sortable: true,
       filter: true,
     },
     {
-      headerName: "Department",
-      field: "Department",
-      editable: true,
-      sortable: true,
-      filter: true,
-    },
-    {
-      headerName: "Location",
-      field: "Location",
+      headerName: "Profile",
+      field: "Profile",
       editable: true,
       sortable: true,
       filter: true,
@@ -83,7 +75,7 @@ function Founders() {
               className="bg-white text-black p-2 m-2 rounded hover:bg-red-500 hover:text-white hover:shadow-white"
               onClick={handleOpen}
             >
-              Add Career!!
+              Add Founders!!
             </button>
           </Grid>
           <div

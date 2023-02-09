@@ -4,17 +4,14 @@ import { AgGridReact, AgGridColumn } from "ag-grid-react";
 import Grid from "@mui/material/Grid";
 import FormPopup from "../components/Popup";
 
-function Teams() {
+function RetailerBanner() {
   const [tabelData, setTableData] = React.useState(null);
-  const url = "http://localhost:3000/api/hello";
+  const url = "http://localhost:3000/api/login";
   useEffect(() => {
     getCareerList();
   }, [1]);
   const [formData, setFormData] = React.useState({
-    ID: "",
-    Name: "",
-    Profile: "",
-    Designation: "",
+    RetailerBanner: "",
   });
   const onChange = (e) => {
     const { value, id } = e.target;
@@ -38,24 +35,9 @@ function Teams() {
   const handleClose = () => setOpen(false);
 
   const columnDefs = [
-    { headerName: "ID", field: "ID" },
     {
-      headerName: "Name",
-      field: "Designation",
-      editable: true,
-      sortable: true,
-      filter: true,
-    },
-    {
-      headerName: "Profile",
-      field: "Profile",
-      editable: true,
-      sortable: true,
-      filter: true,
-    },
-    {
-      headerName: "Designation",
-      field: "Designation",
+      headerName: "Retailer Banner",
+      field: "RetailerBanner",
       editable: true,
       sortable: true,
       filter: true,
@@ -73,9 +55,9 @@ function Teams() {
   return (
     <div className="bg-red-50">
       <Sidenav />
-      <div className="bg-red-50  text-black  lg:pl-[250px] xl:pl-[350px] 2xl:pl-[350px]  pr-6 ">
+      <div className="bg-red-50  lg:pl-[250px] xl:pl-[350px] 2xl:pl-[350px] text-black  pr-6">
         <div className="pl-2 py-2 bg-red-50      text-3xl  text-black pt-2 ">
-          Welcome to Teams Page 🧑🏻‍🤝‍🧑🏼
+          Welcome to Founders Page 🧑‍💻
         </div>
         <div className="h-screen">
           <Grid align="right">
@@ -83,7 +65,7 @@ function Teams() {
               className="bg-white text-black p-2 m-2 rounded hover:bg-red-500 hover:text-white hover:shadow-white"
               onClick={handleOpen}
             >
-              Add Teams!!
+              Add Retailer Banner!!
             </button>
           </Grid>
           <div
@@ -114,4 +96,4 @@ function Teams() {
   );
 }
 
-export default Teams;
+export default RetailerBanner;

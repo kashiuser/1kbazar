@@ -83,7 +83,7 @@ function Subscribe() {
               className="bg-white text-black p-2 m-2 rounded hover:bg-red-500 hover:text-white hover:shadow-white"
               onClick={handleOpen}
             >
-              Add Career!!
+              Add Subscribe!!
             </button>
           </Grid>
           <div
