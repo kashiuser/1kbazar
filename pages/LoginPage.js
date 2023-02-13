@@ -2,38 +2,11 @@ import React from "react";
 import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 import { useRouter } from "next/router";
 function LoginPage() {
   const Router = useRouter();
-  async function login(username, password) {
-    try {
-      const response = await fetch(
-        "https://1kbazzar-api.moshimoshi.cloud/admin/login",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ username, password }),
-        }
-      );
-      if (response.status === 200) {
-        toast.success("Login successful!");
-        const data = await response.json();
-        console.log(data);
-        // Store the token in local storage
-        localStorage.setItem("token", data.token);
-        router.push("/Dashboared");
-        return data.token;
-      } else {
-        console.error(response.data.error);
-        toast.error(response.data.error);
-      }
-    } catch (error) {
-      console.error(error);
-      toast.error("An error occurred while logging in. Please try again.");
-    }
-  }
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -54,13 +27,16 @@ function LoginPage() {
       );
 
       if (!response.data.error) {
-        console.log(response.headers);
+        toast.success("Login successful!");
+
+        console.log(response);
         router.push("/Dashboared");
       } else {
         console.error(response.data.error);
       }
     } catch (error) {
       console.error(error);
+      toast.error("Try logining in with a differet crendentials");
     }
   };
   return (
@@ -164,6 +140,7 @@ function LoginPage() {
           </div>
         </div>
       </section>
+      <ToastContainer />
     </div>
   );
 }
