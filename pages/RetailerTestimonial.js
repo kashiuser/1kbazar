@@ -20,18 +20,18 @@ const style = {
   p: 4,
 };
 
-function FAQ() {
+function RetailerTestimonial() {
   const [tabelData, setTableData] = React.useState(null);
 
   useEffect(() => {
-    getFAQList();
+    getRetailerTestimonialList();
   }, []);
   const [formData, setFormData] = React.useState([""]);
   const onChange = (e) => {
     const { value, id } = e.target;
     setFormData({ ...formData, [id]: value });
   };
-  const getFAQList = async () => {
+  const getRetailerTestimonialList = async () => {
     try {
       const res = await axios.get(
         "https://1kbazzar-api.moshimoshi.cloud/blog/blogList"
@@ -72,6 +72,7 @@ function FAQ() {
     },
   ];
 
+
   const defaultColDef = {
     sortable: true,
     filter: true,
@@ -83,9 +84,9 @@ function FAQ() {
   return (
     <div className="bg-red-50">
       <Sidenav />
-      <div className="bg-red-50  text-black lg:pl-[250px] xl:pl-[350px] 2xl:pl-[350px]  pr-6">
+      <div className="bg-red-50  lg:pl-[250px] xl:pl-[350px] 2xl:pl-[350px] text-black  pr-6">
         <div className="pl-2 py-2 bg-red-50      text-3xl  text-black pt-2 ">
-          Welcome to F.A.Q page 📔
+          Welcome to Retailer Testimonial
         </div>
         <div className="h-screen">
           <Grid align="right">
@@ -93,7 +94,7 @@ function FAQ() {
               className="bg-white text-black p-2 m-2 rounded hover:bg-red-500 hover:text-white hover:shadow-white"
               onClick={handleOpen}
             >
-              Add FAQ!!
+              Add Retailer Testimonial!!
             </button>
           </Grid>
           <div
@@ -170,4 +171,4 @@ function FAQ() {
   );
 }
 
-export default FAQ;
+export default RetailerTestimonial;
