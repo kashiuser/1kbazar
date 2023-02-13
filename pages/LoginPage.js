@@ -30,7 +30,7 @@ function LoginPage() {
         toast.success("Login successful!");
 
         console.log(response);
-        router.push("/Dashboared");
+        router.push("/Dashboard");
       } else {
         console.error(response.data.error);
       }
