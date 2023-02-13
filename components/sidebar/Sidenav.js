@@ -34,13 +34,13 @@ function Sidenav() {
           <Link href="/HomeBanner">
             <li className="">Home Banner</li>
           </Link>
-          <Link href="#">
+          <Link href="/HomeTestimonial">
             <li className="">Home Testimonial</li>
           </Link>
           <Link href="/RetailerBanner">
             <li className="">Retailer Banner</li>
           </Link>
-          <Link href="#">
+          <Link href="/RetailerTestimonial">
             <li className="">Retailer Testimonial</li>
           </Link>
 

@@ -2,33 +2,52 @@ import React, { useEffect } from "react";
 import Sidenav from "../components/sidebar/Sidenav";
 import { AgGridReact, AgGridColumn } from "ag-grid-react";
 import Grid from "@mui/material/Grid";
-import FormPopup from "../components/Popup";
+import axios from "axios";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Modal from "@mui/material/Modal";
+import { TextField } from "@mui/material";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 
 function LifeAt1k() {
   const [tabelData, setTableData] = React.useState(null);
-  const url = "http://localhost:3000/api/hello";
+
   useEffect(() => {
-    getCareerList();
-  }, [1]);
-  const [formData, setFormData] = React.useState({
-    ID: "",
-    Image: "",
-  });
+    getLifeAt1kList();
+  }, []);
+  const [formData, setFormData] = React.useState([""]);
   const onChange = (e) => {
     const { value, id } = e.target;
     setFormData({ ...formData, [id]: value });
   };
-  const getCareerList = async () => {
-    await fetch(url)
-      .then((resp) => resp.json())
-      .then((resp) => setTableData(resp));
+  const getLifeAt1kList = async () => {
+    try {
+      const res = await axios.get(
+        "https://1kbazzar-api.moshimoshi.cloud/blog/blogList"
+      );
+      console.log(res.data.data);
+      setTableData(res.data.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
-  const handelFormSubmit = async () => {
-    await fetch(url, { method: "POST", body: JSON.stringify(formData) })
-      .then((resp) => resp.json())
-      // .then((resp) => getCareerList())
-      .catch((err) => console.log(err));
-  };
+  // const handelFormSubmit = async () => {
+  //   await fetch(url, { method: "POST", body: JSON.stringify(formData) })
+  //     .then((resp) => resp.json())
+  //     // .then((resp) => getCareerList())
+  //     .catch((err) => console.log(err));
+  // };
   // console.log(formData);
 
   const [open, setOpen] = React.useState(false);
@@ -36,10 +55,17 @@ function LifeAt1k() {
   const handleClose = () => setOpen(false);
 
   const columnDefs = [
-    { headerName: "ID", field: "ID" },
+    { headerName: "ID", field: "_id" },
     {
-      headerName: "Image",
-      field: "Image",
+      headerName: "title",
+      field: "title",
+      editable: true,
+      sortable: true,
+      filter: true,
+    },
+    {
+      headerName: "body",
+      field: "body",
       editable: true,
       sortable: true,
       filter: true,
@@ -72,7 +98,7 @@ function LifeAt1k() {
           </Grid>
           <div
             id="myGrid"
-            class="ag-theme-alpine pl-2 h-[250px] w-[100%] text-black"
+            class="ag-theme-alpine pl-2 h-[350px] w-[100%] text-black"
           >
             <AgGridReact
               defaultColDef={defaultColDef}
@@ -84,13 +110,59 @@ function LifeAt1k() {
                 // handle update to cell value here
               }}
             />
-            <FormPopup
-              open={open}
-              handleClose={handleClose}
-              data={formData}
-              onChange={onChange}
-              handelFormSubmit={handelFormSubmit}
-            />
+            <div>
+              {/* <Button onClick={handleOpen}>Open modal</Button> */}
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style}>
+                  <form action="">
+                    {console.log(formData)}
+                    <h1 className="py-5">Enter the New Blog Details</h1>
+
+                    <TextField
+                      onChange={(e) => onChange(e)}
+                      id="Blog Title"
+                      placeholder="Enter the Blog Title "
+                      label="Blog Title Heading"
+                      style={{ marginBottom: "24px" }}
+                      fullWidth
+                    />
+                    <TextField
+                      id="Experience"
+                      placeholder="Enter the Blog Body"
+                      label="Body"
+                      fullWidth
+                      style={{ marginBottom: "24px" }}
+                      onChange={(e) => onChange(e)}
+                    />
+                  </form>
+                  <div className="flex flex-row ">
+                    <Button
+                      onClick={handleClose}
+                      color="secondary"
+                      variant="outlined"
+                      style={{ marginRight: "3px" }}
+                      onChange={(e) => onChange(e)}
+                    >
+                      Close
+                    </Button>
+                    <Button
+                      variant="outlined"
+                      onClick={() => {
+                        handelFormSubmit();
+                        handleClose;
+                      }}
+                    >
+                      Submit
+                    </Button>
+                  </div>
+                </Box>
+              </Modal>
+            </div>
           </div>
         </div>
       </div>
