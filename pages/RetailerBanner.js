@@ -120,7 +120,7 @@ function RetailerBanner() {
                     <TextField
                       id="Image"
                       type="file"
-                      placeholder="Uploa the image"
+                      placeholder="Upload the image"
                       fullWidth
                       style={{ marginBottom: "24px" }}
                       onChange={(e) => onChange(e)}
