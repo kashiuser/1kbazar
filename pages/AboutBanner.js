@@ -117,14 +117,6 @@ function AboutBanner() {
                     <h1 className="py-5">Upload the New Banner Image</h1>
 
                     <TextField
-                      onChange={(e) => onChange(e)}
-                      id="Category"
-                      placeholder="Enter Category "
-                      label="category"
-                      style={{ marginBottom: "24px" }}
-                      fullWidth
-                    />
-                    <TextField
                       id="Image"
                       type="file"
                       placeholder="Uploa the image"
