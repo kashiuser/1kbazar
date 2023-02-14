@@ -57,13 +57,6 @@ function AboutBanner() {
   const columnDefs = [
     { headerName: "ID", field: "_id" },
     {
-      headerName: "Category",
-      field: "category",
-      editable: true,
-      sortable: true,
-      filter: true,
-    },
-    {
       headerName: "Image",
       field: "image",
       editable: true,

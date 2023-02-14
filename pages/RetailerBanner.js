@@ -57,13 +57,6 @@ function RetailerBanner() {
   const columnDefs = [
     { headerName: "ID", field: "_id" },
     {
-      headerName: "Category",
-      field: "category",
-      editable: true,
-      sortable: true,
-      filter: true,
-    },
-    {
       headerName: "Image",
       field: "image",
       editable: true,
@@ -124,14 +117,6 @@ function RetailerBanner() {
                     {console.log(formData)}
                     <h1 className="py-5">Upload the New Banner Image</h1>
 
-                    <TextField
-                      onChange={(e) => onChange(e)}
-                      id="Category"
-                      placeholder="Enter Category "
-                      label="category"
-                      style={{ marginBottom: "24px" }}
-                      fullWidth
-                    />
                     <TextField
                       id="Image"
                       type="file"
