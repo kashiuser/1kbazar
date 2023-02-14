@@ -43,7 +43,9 @@ function Sidenav() {
           <Link href="/RetailerTestimonial">
             <li className="">Retailer Testimonial</li>
           </Link>
-
+          <Link href="/AboutBanner">
+            <li className="">About Banner</li>
+          </Link>
           <Link href="/JobOpenings">
             <li>Job Openings !</li>
           </Link>

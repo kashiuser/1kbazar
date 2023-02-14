@@ -22,7 +22,7 @@ function LoginPage() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://moshimoshi.cloud:3000/admin/login",
+        "https://1kbazzar-api.moshimoshi.cloud/admin/login",
         payload
       );
 
@@ -41,25 +41,25 @@ function LoginPage() {
   };
   return (
     <div>
-      <section class="bg-red-50 ">
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <section className="bg-red-50 ">
+        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <a
             href="#"
-            class="flex items-center mb-6 text-2xl font-semibold text-gray-900 "
+            className="flex items-center mb-6 text-2xl font-semibold text-gray-900 "
           >
-            <img class="w-8 h-8 mr-2" src="/Logo.png" alt="logo" />
+            <img className="w-8 h-8 mr-2" src="/Logo.png" alt="logo" />
             BAZAR ADMIN PANEL
           </a>
-          <div class="w-full bg-orange-50 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0  ">
-            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
+          <div className="w-full bg-orange-50 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0  ">
+            <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+              <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
                 Sign in to your account
               </h1>
-              <form class="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+              <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                 <div>
                   <label
                     for="username"
-                    class="block mb-2 text-sm font-medium text-gray-900 "
+                    className="block mb-2 text-sm font-medium text-gray-900 "
                   >
                     Your username
                   </label>
@@ -69,7 +69,7 @@ function LoginPage() {
                     value={username}
                     onChange={(event) => setUsername(event.target.value)}
                     id="username"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                     placeholder="Enter your username here"
                     required=""
                   />
@@ -77,7 +77,7 @@ function LoginPage() {
                 <div>
                   <label
                     for="password"
-                    class="block mb-2 text-sm font-medium text-gray-900 "
+                    className="block mb-2 text-sm font-medium text-gray-900 "
                   >
                     Password
                   </label>
@@ -88,30 +88,30 @@ function LoginPage() {
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
                     placeholder="••••••••"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                     required=""
                   />
                 </div>
-                <div class="flex items-center justify-between">
-                  <div class="flex items-start">
-                    <div class="flex items-center h-5">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-start">
+                    <div className="flex items-center h-5">
                       <input
                         id="remember"
                         aria-describedby="remember"
                         type="checkbox"
-                        class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 "
+                        className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 "
                         required=""
                       />
                     </div>
-                    <div class="ml-3 text-sm">
-                      <label for="remember" class="text-gray-500 ">
+                    <div className="ml-3 text-sm">
+                      <label for="remember" className="text-gray-500 ">
                         Remember me
                       </label>
                     </div>
                   </div>
                   <a
                     href="#"
-                    class="text-sm font-medium text- hover:underline "
+                    className="text-sm font-medium text- hover:underline "
                   >
                     Forgot password?
                   </a>
@@ -120,17 +120,17 @@ function LoginPage() {
                 <button
                   onClick={handleSubmit}
                   type="submit"
-                  class="w-full text-white bg-black mt-2 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+                  className="w-full text-white bg-black mt-2 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
                 >
                   Sign in
                 </button>
                 {/* </Link> */}
 
-                <p class="text-sm font-light text-gray-500 ">
+                <p className="text-sm font-light text-gray-500 ">
                   Don’t have an account yet?{" "}
                   <a
                     href="#"
-                    class="font-medium text-primary-600 hover:underline "
+                    className="font-medium text-primary-600 hover:underline "
                   >
                     Sign up
                   </a>
