@@ -122,20 +122,36 @@ function RetailerTestimonial() {
                 <Box sx={style}>
                   <form action="">
                     {console.log(formData)}
-                    <h1 className="py-5">Enter the New Blog Details</h1>
+                    <h1 className="py-5">Enter the New Testimonial</h1>
 
                     <TextField
                       onChange={(e) => onChange(e)}
-                      id="Blog Title"
-                      placeholder="Enter the Blog Title "
-                      label="Blog Title Heading"
+                      id="Category"
+                      placeholder="Enter Category "
+                      label="category"
                       style={{ marginBottom: "24px" }}
                       fullWidth
                     />
                     <TextField
-                      id="Experience"
-                      placeholder="Enter the Blog Body"
-                      label="Body"
+                      onChange={(e) => onChange(e)}
+                      id="Title"
+                      placeholder="Enter Title"
+                      label="title"
+                      style={{ marginBottom: "24px" }}
+                      fullWidth
+                    />
+                    <TextField
+                      onChange={(e) => onChange(e)}
+                      id="Content"
+                      placeholder="Enter Content"
+                      label="content"
+                      style={{ marginBottom: "24px" }}
+                      fullWidth
+                    />
+                    <TextField
+                      id="Image"
+                      type="file"
+                      placeholder="Uploa the image"
                       fullWidth
                       style={{ marginBottom: "24px" }}
                       onChange={(e) => onChange(e)}

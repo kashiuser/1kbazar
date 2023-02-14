@@ -121,20 +121,20 @@ function HomeBanner() {
                 <Box sx={style}>
                   <form action="">
                     {console.log(formData)}
-                    <h1 className="py-5">Enter the New Blog Details</h1>
+                    <h1 className="py-5">Upload the New Banner Image</h1>
 
                     <TextField
                       onChange={(e) => onChange(e)}
-                      id="Blog Title"
-                      placeholder="Enter the Blog Title "
-                      label="Blog Title Heading"
+                      id="Category"
+                      placeholder="Enter Category "
+                      label="category"
                       style={{ marginBottom: "24px" }}
                       fullWidth
                     />
                     <TextField
-                      id="Experience"
-                      placeholder="Enter the Blog Body"
-                      label="Body"
+                      id="Image"
+                      type="file"
+                      placeholder="Uploa the image"
                       fullWidth
                       style={{ marginBottom: "24px" }}
                       onChange={(e) => onChange(e)}
