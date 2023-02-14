@@ -34,7 +34,7 @@ function AboutBanner() {
   const getAboutBannerList = async () => {
     try {
       const res = await axios.get(
-        "https://1kbazzar-api.moshimoshi.cloud/blog/blogList"
+        "https://1kbazzar-api.moshimoshi.cloud/blog/about_banner"
       );
       console.log(res.data.data);
       setTableData(res.data.data);
@@ -57,15 +57,15 @@ function AboutBanner() {
   const columnDefs = [
     { headerName: "ID", field: "_id" },
     {
-      headerName: "title",
-      field: "title",
+      headerName: "Category",
+      field: "category",
       editable: true,
       sortable: true,
       filter: true,
     },
     {
-      headerName: "body",
-      field: "body",
+      headerName: "Image",
+      field: "image",
       editable: true,
       sortable: true,
       filter: true,

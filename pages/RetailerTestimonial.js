@@ -34,7 +34,7 @@ function RetailerTestimonial() {
   const getRetailerTestimonialList = async () => {
     try {
       const res = await axios.get(
-        "https://1kbazzar-api.moshimoshi.cloud/blog/blogList"
+        "https://1kbazzar-api.moshimoshi.cloud/blog/home_testimonials"
       );
       console.log(res.data.data);
       setTableData(res.data.data);
@@ -57,15 +57,29 @@ function RetailerTestimonial() {
   const columnDefs = [
     { headerName: "ID", field: "_id" },
     {
-      headerName: "title",
+      headerName: "Title",
       field: "title",
       editable: true,
       sortable: true,
       filter: true,
     },
     {
-      headerName: "body",
-      field: "body",
+      headerName: "Category",
+      field: "category",
+      editable: true,
+      sortable: true,
+      filter: true,
+    },
+    {
+      headerName: "Content",
+      field: "content",
+      editable: true,
+      sortable: true,
+      filter: true,
+    },
+    {
+      headerName: "Image",
+      field: "image",
       editable: true,
       sortable: true,
       filter: true,
@@ -126,15 +140,7 @@ function RetailerTestimonial() {
 
                     <TextField
                       onChange={(e) => onChange(e)}
-                      id="Category"
-                      placeholder="Enter Category "
-                      label="category"
-                      style={{ marginBottom: "24px" }}
-                      fullWidth
-                    />
-                    <TextField
-                      onChange={(e) => onChange(e)}
-                      id="Title"
+                      id="title"
                       placeholder="Enter Title"
                       label="title"
                       style={{ marginBottom: "24px" }}
@@ -142,16 +148,16 @@ function RetailerTestimonial() {
                     />
                     <TextField
                       onChange={(e) => onChange(e)}
-                      id="Content"
+                      id="content"
                       placeholder="Enter Content"
                       label="content"
                       style={{ marginBottom: "24px" }}
                       fullWidth
                     />
                     <TextField
-                      id="Image"
+                      id="image"
                       type="file"
-                      placeholder="Uploa the image"
+                      placeholder="Upload the image"
                       fullWidth
                       style={{ marginBottom: "24px" }}
                       onChange={(e) => onChange(e)}
