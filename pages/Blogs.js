@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import Sidenav from "../components/sidebar/Sidenav";
 import { AgGridReact, AgGridColumn } from "ag-grid-react";
 import Grid from "@mui/material/Grid";
-// import FormPopup from "../components/Popup";
 import axios from "axios";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -23,7 +22,7 @@ const style = {
 
 function Blogs() {
   const [tabelData, setTableData] = React.useState(null);
-  // const url = "http://moshimoshi.cloud:3000/blog/blogList";
+
   useEffect(() => {
     getCareerList();
   }, []);
@@ -65,8 +64,22 @@ function Blogs() {
       filter: true,
     },
     {
-      headerName: "body",
-      field: "body",
+      headerName: "Description",
+      field: "description",
+      editable: true,
+      sortable: true,
+      filter: true,
+    },
+    {
+      headerName: "Category",
+      field: "category",
+      editable: true,
+      sortable: true,
+      filter: true,
+    },
+    {
+      headerName: "Image",
+      field: "image",
       editable: true,
       sortable: true,
       filter: true,
@@ -128,18 +141,26 @@ function Blogs() {
                     <TextField
                       onChange={(e) => onChange(e)}
                       id="Blog Title"
-                      placeholder="Enter the Blog Title "
-                      label="Blog Title Heading"
+                      placeholder="Enter the Blog Title"
+                      label="Blog Title"
                       style={{ marginBottom: "24px" }}
                       fullWidth
                     />
                     <TextField
-                      id="Experience"
-                      placeholder="Enter the Blog Body"
-                      label="Body"
-                      fullWidth
-                      style={{ marginBottom: "24px" }}
                       onChange={(e) => onChange(e)}
+                      id="description"
+                      placeholder="Enter the Blog Description"
+                      label="Blogs Description"
+                      style={{ marginBottom: "24px" }}
+                      fullWidth
+                    />
+                    <TextField
+                      onChange={(e) => onChange(e)}
+                      type="file"
+                      id="image"
+                      placeholder="Upload the image"
+                      style={{ marginBottom: "24px" }}
+                      fullWidth
                     />
                   </form>
                   <div className="flex flex-row ">
