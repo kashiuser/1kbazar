@@ -34,7 +34,7 @@ function NewsRoom() {
   const getNewsRoomList = async () => {
     try {
       const res = await axios.get(
-        "https://1kbazzar-api.moshimoshi.cloud/blog/blogList"
+        "https://1kbazzar-api.moshimoshi.cloud/blog/news"
       );
       console.log(res.data.data);
       setTableData(res.data.data);

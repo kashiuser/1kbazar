@@ -34,7 +34,7 @@ function Founders() {
   const getFounderList = async () => {
     try {
       const res = await axios.get(
-        "https://1kbazzar-api.moshimoshi.cloud/blog/blogList"
+        "https://1kbazzar-api.moshimoshi.cloud/blog/founders"
       );
       console.log(res.data.data);
       setTableData(res.data.data);
