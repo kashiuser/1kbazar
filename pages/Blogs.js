@@ -97,7 +97,7 @@ function Blogs() {
   return (
     <div className="bg-red-50">
       <Sidenav />
-      <div className="bg-red-50  lg:pl-[250px] xl:pl-[350px] 2xl:pl-[350px]  text-black pr-6">
+      <div className="bg-red-50  text-black  lg:pl-[250px] xl:pl-[350px] 2xl:pl-[350px]  pr-6 ">
         <div className="pl-2 py-2 bg-red-50      text-3xl  text-black pt-2 ">
           Welcome to Blogs Page 📝
         </div>
@@ -107,7 +107,7 @@ function Blogs() {
               className="bg-white text-black p-2 m-2 rounded hover:bg-red-500 hover:text-white hover:shadow-white"
               onClick={handleOpen}
             >
-              Add Blogs!!
+              Add Teams!!
             </button>
           </Grid>
           <div

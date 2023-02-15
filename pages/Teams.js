@@ -112,7 +112,7 @@ function Teams() {
           </Grid>
           <div
             id="myGrid"
-            class="ag-theme-alpine pl-2 h-[350px] w-[100%] text-black"
+            className="ag-theme-alpine pl-2 h-[350px] w-[100%] text-black"
           >
             <AgGridReact
               defaultColDef={defaultColDef}
