@@ -57,15 +57,29 @@ function Teams() {
   const columnDefs = [
     { headerName: "ID", field: "_id" },
     {
-      headerName: "title",
+      headerName: "Title",
       field: "title",
       editable: true,
       sortable: true,
       filter: true,
     },
     {
-      headerName: "body",
-      field: "body",
+      headerName: "Description",
+      field: "description",
+      editable: true,
+      sortable: true,
+      filter: true,
+    },
+    {
+      headerName: "Category",
+      field: "category",
+      editable: true,
+      sortable: true,
+      filter: true,
+    },
+    {
+      headerName: "Image",
+      field: "image",
       editable: true,
       sortable: true,
       filter: true,
@@ -121,23 +135,31 @@ function Teams() {
                 <Box sx={style}>
                   <form action="">
                     {console.log(formData)}
-                    <h1 className="py-5">Enter the New Blog Details</h1>
+                    <h1 className="py-5">Enter the Teams Details</h1>
 
                     <TextField
                       onChange={(e) => onChange(e)}
-                      id="Blog Title"
-                      placeholder="Enter the Blog Title "
-                      label="Blog Title Heading"
+                      id="title"
+                      placeholder="Enter the Teams Name"
+                      label="Teams Name"
                       style={{ marginBottom: "24px" }}
                       fullWidth
                     />
                     <TextField
-                      id="Experience"
-                      placeholder="Enter the Blog Body"
-                      label="Body"
-                      fullWidth
-                      style={{ marginBottom: "24px" }}
                       onChange={(e) => onChange(e)}
+                      id="description"
+                      placeholder="Enter the Teams Designation"
+                      label="Teams Designation"
+                      style={{ marginBottom: "24px" }}
+                      fullWidth
+                    />
+                    <TextField
+                      onChange={(e) => onChange(e)}
+                      type="file"
+                      id="image"
+                      placeholder="Upload the image"
+                      style={{ marginBottom: "24px" }}
+                      fullWidth
                     />
                   </form>
                   <div className="flex flex-row ">

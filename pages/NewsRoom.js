@@ -57,15 +57,36 @@ function NewsRoom() {
   const columnDefs = [
     { headerName: "ID", field: "_id" },
     {
-      headerName: "title",
+      headerName: "Title",
       field: "title",
       editable: true,
       sortable: true,
       filter: true,
     },
     {
-      headerName: "body",
-      field: "body",
+      headerName: "Description",
+      field: "description",
+      editable: true,
+      sortable: true,
+      filter: true,
+    },
+    {
+      headerName: "Category",
+      field: "category",
+      editable: true,
+      sortable: true,
+      filter: true,
+    },
+    {
+      headerName: "Read Time",
+      field: "readTime",
+      editable: true,
+      sortable: true,
+      filter: true,
+    },
+    {
+      headerName: "Image",
+      field: "image",
       editable: true,
       sortable: true,
       filter: true,
@@ -121,23 +142,39 @@ function NewsRoom() {
                 <Box sx={style}>
                   <form action="">
                     {console.log(formData)}
-                    <h1 className="py-5">Enter the New Blog Details</h1>
+                    <h1 className="py-5">Enter the News Details</h1>
 
                     <TextField
                       onChange={(e) => onChange(e)}
-                      id="Blog Title"
-                      placeholder="Enter the Blog Title "
-                      label="Blog Title Heading"
+                      id="title"
+                      placeholder="Enter the News Title"
+                      label="News Title"
                       style={{ marginBottom: "24px" }}
                       fullWidth
                     />
                     <TextField
-                      id="Experience"
-                      placeholder="Enter the Blog Body"
-                      label="Body"
-                      fullWidth
-                      style={{ marginBottom: "24px" }}
                       onChange={(e) => onChange(e)}
+                      id="description"
+                      placeholder="Enter the News Description"
+                      label="News Description"
+                      style={{ marginBottom: "24px" }}
+                      fullWidth
+                    />
+                    <TextField
+                      onChange={(e) => onChange(e)}
+                      id="readTime"
+                      placeholder="Enter the News Read Time"
+                      label="News Read Time"
+                      style={{ marginBottom: "24px" }}
+                      fullWidth
+                    />
+                    <TextField
+                      onChange={(e) => onChange(e)}
+                      type="file"
+                      id="image"
+                      placeholder="Upload the image"
+                      style={{ marginBottom: "24px" }}
+                      fullWidth
                     />
                   </form>
                   <div className="flex flex-row ">
