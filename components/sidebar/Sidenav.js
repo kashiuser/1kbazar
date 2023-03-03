@@ -52,6 +52,9 @@ function Sidenav() {
           <Link href="/ContactForm">
             <li>Contact Form</li>
           </Link>
+          <Link href="/RetailerForm">
+            <li>Retailer Form</li>
+          </Link>
           <Link href="/Teams">
             <li>Teams</li>
           </Link>

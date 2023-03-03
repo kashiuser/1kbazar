@@ -20,7 +20,7 @@ const style = {
   p: 4,
 };
 
-function ContactForm() {
+function RetailerForm() {
   const [tabelData, setTableData] = React.useState(null);
   useEffect(() => {
     getContactList();
@@ -33,7 +33,7 @@ function ContactForm() {
   const getContactList = async () => {
     try {
       const res = await axios.get(
-        "https://1kbazzar-api.moshimoshi.cloud/contactUs/form"
+        "https://1kbazzar-api.moshimoshi.cloud/blog/retail_page"
       );
       console.log(res.data.data);
       setTableData(res.data.data);
@@ -56,8 +56,8 @@ function ContactForm() {
   const columnDefs = [
     { headerName: "ID", field: "_id" },
     {
-      headerName: "Name",
-      field: "name",
+      headerName: "Title",
+      field: "title",
       editable: true,
       sortable: true,
       filter: true,
@@ -70,8 +70,15 @@ function ContactForm() {
       filter: true,
     },
     {
-      headerName: "Message",
-      field: "message",
+      headerName: "City",
+      field: "city",
+      editable: true,
+      sortable: true,
+      filter: true,
+    },
+    {
+      headerName: "Phone Number",
+      field: "phonenumber",
       editable: true,
       sortable: true,
       filter: true,
@@ -130,7 +137,7 @@ function ContactForm() {
       <Sidenav />
       <div className="bg-red-50  text-black  pr-2  lg:pl-[250px] xl:pl-[350px] 2xl:pl-[350px] ">
         <div className="pl-2 py-2 bg-red-50      text-3xl  text-black pt-2 ">
-          welcome to Contact form Page 📞
+          welcome to Retaile Form Page 📞
         </div>
         <div className="h-screen">
           <Grid align="right">
@@ -138,7 +145,7 @@ function ContactForm() {
               className="bg-white text-black p-2 m-2 rounded hover:bg-red-500 hover:text-white hover:shadow-white"
               onClick={handleOpen}
             >
-              Add Contact Form!!
+              Add Retaile Form!!
             </button>
           </Grid>
           <div
@@ -171,8 +178,8 @@ function ContactForm() {
                     <TextField
                       onChange={(e) => onChange(e)}
                       id="name"
-                      placeholder="Enter the Name"
-                      label="name"
+                      placeholder="Enter the Title"
+                      label="tile"
                       style={{ marginBottom: "24px" }}
                       fullWidth
                     />
@@ -185,9 +192,17 @@ function ContactForm() {
                       onChange={(e) => onChange(e)}
                     />
                     <TextField
-                      id="message"
-                      placeholder="Enter the Message"
-                      label="message"
+                      id="city"
+                      placeholder="Enter the City"
+                      label="city"
+                      fullWidth
+                      style={{ marginBottom: "24px" }}
+                      onChange={(e) => onChange(e)}
+                    />
+                    <TextField
+                      id="phonenumber"
+                      placeholder="Enter the Phone Number"
+                      label="phonenumber"
                       fullWidth
                       style={{ marginBottom: "24px" }}
                       onChange={(e) => onChange(e)}
@@ -223,4 +238,4 @@ function ContactForm() {
   );
 }
 
-export default ContactForm;
+export default RetailerForm;
