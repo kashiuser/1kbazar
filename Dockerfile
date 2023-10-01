@@ -1,15 +1,23 @@
-FROM node:16.2.0-alpine3.11 
+# Use an official Node.js runtime as the base image
+FROM node:16.2.0-alpine3.11
 
-RUN mkdir -p /usr/src
+# Set the working directory in the container
+WORKDIR /usr/src/app
 
-WORKDIR /usr/src
+# Copy package.json and package-lock.json (or yarn.lock) to the container
+COPY package*.json ./
 
-COPY . /usr/src
+# Install project dependencies
+RUN npm install
 
-RUN npm install -f
+# Copy the entire project directory to the container
+COPY . .
 
+# Build the Next.js app
 RUN npm run build
 
+# Expose port 3000 (the port Next.js runs on by default)
 EXPOSE 3000
 
-CMD ["npm","run","start"]
+# Start the app
+CMD ["npm", "start"]
