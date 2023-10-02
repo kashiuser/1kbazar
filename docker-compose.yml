@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  1kbazar_admin_panal:
+  web:
     build:
       context: .
       dockerfile: Dockerfile
