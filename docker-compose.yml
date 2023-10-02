@@ -1,9 +1,10 @@
 version: '3'
 
 services:
-  web:
+  1kbazar_admin_panal:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: 1kbazar_admin_container
     ports:
       - "3000:3000"
